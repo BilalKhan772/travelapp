@@ -1,0 +1,74 @@
+/* components/Header.css */
+.header {
+  background-color: #3f0d66; /* dark purple */
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-left {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.header-right {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.header-right a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.header-right a:hover {
+  color: #ffd700; /* gold on hover */
+}
+
+.logout-btn {
+  background-color: white;
+  color: #3f0d66;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #ffd700;
+  color: #3f0d66;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: auto;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .header-right {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #3f0d66;
+    padding-top: 10px;
+  }
+
+  .header-right.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
