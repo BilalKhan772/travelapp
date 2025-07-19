@@ -1,9 +1,10 @@
 /* Universal page background */
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f2f0fc; /* eye-comfortable background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f2fa;
 }
+
 
 
 /* Header styles */
