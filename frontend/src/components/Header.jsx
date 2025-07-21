@@ -1,7 +1,7 @@
 // components/Header.jsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './Header.css'; // new css file for styling
+import './Header.css';
 import { getUserFromToken } from '../utils/auth';
 
 const Header = () => {
@@ -24,7 +24,11 @@ const Header = () => {
         <Link to="/subscription">Subscription</Link>
         <Link to="/about">About</Link>
         <Link to="/support">Help</Link>
-        <button className="logout-btn" onClick={handleLogout}>Logout</button>
+        {user && (
+          <button className="logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
+        )}
       </div>
 
       <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>

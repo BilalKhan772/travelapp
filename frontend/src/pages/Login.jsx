@@ -1,39 +1,61 @@
-// src/pages/Login.jsx
 import React, { useState } from 'react';
 import axios from '../services/api';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import './Login.css';
 
 export default function Login() {
   const [form, setForm] = useState({ email: '', password: '' });
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post('/auth/login', form);
-      const { token, approved } = res.data;
-
-      if (!approved) {
-        alert("Your account is not approved yet by admin.");
-        return;
+      const { token } = res.data;
+      if (token) {
+        localStorage.setItem('token', token);
+        alert('Login successful!');
+        navigate('/group-fare');
+      } else {
+        alert('Login failed. No token received.');
       }
-
-      localStorage.setItem('token', token);
-      navigate('/groupfare'); // default page
     } catch (err) {
-      alert("Login failed: " + err.response.data.message);
+      console.error(err);
+      alert('Login failed');
     }
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input placeholder="Email" type="email" required onChange={(e) => setForm({ ...form, email: e.target.value })} />
-        <input placeholder="Password" type="password" required onChange={(e) => setForm({ ...form, password: e.target.value })} />
+    <div className="auth-container">
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <h2>Login</h2>
+        <input
+          name="email"
+          type="email"
+          placeholder="Email"
+          required
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+        />
+        <div className="password-field">
+          <input
+            name="password"
+            type={showPassword ? 'text' : 'password'}
+            placeholder="Password"
+            required
+            value={form.password}
+            onChange={(e) => setForm({ ...form, password: e.target.value })}
+          />
+          <span onClick={() => setShowPassword(!showPassword)}>
+            {showPassword ? '🙈' : '👁️'}
+          </span>
+        </div>
         <button type="submit">Login</button>
+        <p>
+          Don't have an account? <Link to="/signup">Sign Up</Link>
+        </p>
       </form>
-      <p>Don't have an account? <a href="/signup">Signup</a></p>
     </div>
   );
 }

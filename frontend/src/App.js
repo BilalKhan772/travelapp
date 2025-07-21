@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import GroupFare from './pages/GroupFare';
 import Advertisements from './pages/Advertisements';
@@ -9,19 +9,32 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import AdminPanel from './pages/AdminPanel';
 import PrivateRoute from './components/PrivateRoute';
+import { isLoggedIn } from './utils/auth';
 
 function App() {
+  const location = useLocation();
+
+  // Hide header only on login and signup
+  const hideHeader = ['/login', '/signup', '/'].includes(location.pathname);
+
   return (
     <>
-      <Header />
+      {!hideHeader && <Header />}
       <Routes>
-        {/* 🔓 Public Routes */}
+        <Route
+          path="/"
+          element={
+            isLoggedIn() ? (
+              <Navigate to="/group-fare" />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<About />} />
         <Route path="/support" element={<Support />} />
-
-        {/* 🔐 Protected Routes */}
         <Route
           path="/group-fare"
           element={
@@ -54,9 +67,6 @@ function App() {
             </PrivateRoute>
           }
         />
-
-        {/* 🔁 Default Fallback */}
-        <Route path="*" element={<GroupFare />} />
       </Routes>
     </>
   );
