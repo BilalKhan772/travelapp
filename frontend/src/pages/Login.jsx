@@ -29,6 +29,10 @@ export default function Login() {
   return (
     <div className="auth-container">
       <form className="auth-form" onSubmit={handleSubmit}>
+        <div className="welcome-box">
+          <h1 className="welcome-title">Get set. Go mighty.</h1>
+        </div>
+
         <h2>Login</h2>
         <input
           name="email"
@@ -48,7 +52,11 @@ export default function Login() {
             onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
           <span onClick={() => setShowPassword(!showPassword)}>
-            {showPassword ? '🙈' : '👁️'}
+            {showPassword ? (
+              <i className="fas fa-eye-slash"></i>
+            ) : (
+              <i className="fas fa-eye"></i>
+            )}
           </span>
         </div>
         <button type="submit">Login</button>

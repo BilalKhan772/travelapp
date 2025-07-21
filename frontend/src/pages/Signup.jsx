@@ -29,6 +29,11 @@ export default function Signup() {
   return (
     <div className="auth-container">
       <form className="auth-form" onSubmit={handleSubmit}>
+        <div className="welcome-box">
+          <h1 className="welcome-title">Step Into Something Mighty</h1>
+        
+        </div>
+
         <h2>Sign Up</h2>
         <input
           name="username"
@@ -56,7 +61,11 @@ export default function Signup() {
             onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
           <span onClick={() => setShowPassword(!showPassword)}>
-            {showPassword ? '🙈' : '👁️'}
+            {showPassword ? (
+              <i className="fas fa-eye-slash"></i>
+            ) : (
+              <i className="fas fa-eye"></i>
+            )}
           </span>
         </div>
         <button type="submit">Sign Up</button>
