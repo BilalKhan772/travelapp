@@ -14,6 +14,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   width: 100%;
   max-width: 400px;
+  box-sizing: border-box;
 }
 
 .auth-form h2 {
@@ -24,11 +25,12 @@
 
 .auth-form input {
   width: 100%;
-  padding: 10px 12px;
+  padding: 12px 14px;
   margin-bottom: 1rem;
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 .password-field {
@@ -71,9 +73,14 @@
   text-decoration: none;
 }
 
+/* Responsive input alignment fix */
 @media (max-width: 480px) {
   .auth-form {
     padding: 1.5rem;
+  }
+
+  .auth-form input {
+    padding: 12px 14px;
   }
 }
 

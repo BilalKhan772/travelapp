@@ -31,7 +31,6 @@ export default function Signup() {
       <form className="auth-form" onSubmit={handleSubmit}>
         <div className="welcome-box">
           <h1 className="welcome-title">Step Into Something Mighty</h1>
-        
         </div>
 
         <h2>Sign Up</h2>
