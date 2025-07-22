@@ -24,11 +24,18 @@
   color: white;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: color 0.3s, border-bottom 0.3s;
 }
 
 .header-right a:hover {
   color: #ffd700; /* gold on hover */
+}
+
+/* 🔥 Active link highlight */
+.active-link {
+  border-bottom: 2px solid #ffd700;
+  padding-bottom: 2px;
+  color: #ffd700;
 }
 
 .logout-btn {
@@ -71,4 +78,58 @@
   .menu-toggle {
     display: block;
   }
+}
+
+/* 🔐 Modal for logout confirmation */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.yes-btn, .no-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.yes-btn {
+  background-color: #3f0d66;
+  color: white;
+}
+
+.no-btn {
+  background-color: #aaa;
+  color: white;
+}
+
+.yes-btn:hover {
+  background-color: #5f1d99;
+}
+
+.no-btn:hover {
+  background-color: #888;
 }
