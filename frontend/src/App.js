@@ -7,7 +7,7 @@ import About from './pages/About';
 import Support from './pages/Support';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import AdminPanel from './pages/AdminPanel';
+import AdminPanel from './pages/admin/AdminPanel';
 import PrivateRoute from './components/PrivateRoute';
 import { isLoggedIn } from './utils/auth';
 
@@ -35,6 +35,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<About />} />
         <Route path="/support" element={<Support />} />
+
+        {/* Protected Routes */}
         <Route
           path="/group-fare"
           element={
@@ -59,10 +61,12 @@ function App() {
             </PrivateRoute>
           }
         />
+
+        {/* 🔐 Admin-only route */}
         <Route
-          path="/admin-panel"
+          path="/admin-panel/*"
           element={
-            <PrivateRoute>
+            <PrivateRoute adminOnly={true}>
               <AdminPanel />
             </PrivateRoute>
           }

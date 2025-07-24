@@ -45,7 +45,8 @@ public class AuthService {
             throw new RuntimeException("Invalid credentials");
         }
 
-        String token = jwtProvider.generateToken(user.getEmail());
+        // ✅ Now includes role and isApproved in token
+        String token = jwtProvider.generateToken(user.getEmail(), user.getRole(), user.isApproved());
         return new AuthResponse(token, user.getRole(), user.isApproved());
     }
 }

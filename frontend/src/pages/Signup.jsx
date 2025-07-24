@@ -13,15 +13,30 @@ export default function Signup() {
     try {
       const res = await axios.post('/auth/register', form);
       const { token } = res.data;
+
       if (token) {
         localStorage.setItem('token', token);
+
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        const { role, isApproved } = payload;
+
         alert('Signup successful! You are now logged in.');
-        navigate('/group-fare');
+
+        // 🔁 Redirect logic
+        if (role === 'ADMIN') {
+          navigate('/admin-panel');
+        } else if (isApproved === true) {
+          navigate('/group-fare');
+        } else {
+          navigate('/subscription');
+        }
+
       } else {
         alert('Signup successful! Please login.');
         navigate('/login');
       }
     } catch (err) {
+      console.error('❌ Signup failed:', err);
       alert('Signup failed');
     }
   };

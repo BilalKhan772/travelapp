@@ -1,7 +1,9 @@
+// Login.jsx
 import React, { useState } from 'react';
 import axios from '../services/api';
 import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
+import { getUserFromToken } from '../utils/auth'; // ✅ import this
 
 export default function Login() {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -13,10 +15,19 @@ export default function Login() {
     try {
       const res = await axios.post('/auth/login', form);
       const { token } = res.data;
+
       if (token) {
         localStorage.setItem('token', token);
         alert('Login successful!');
-        navigate('/group-fare');
+
+        const user = getUserFromToken(); // ✅ decode token after saving
+        console.log("🔐 Logged in user:", user);
+
+        if (user.role === 'ADMIN') {
+          navigate('/admin-panel');
+        } else {
+          navigate('/group-fare');
+        }
       } else {
         alert('Login failed. No token received.');
       }

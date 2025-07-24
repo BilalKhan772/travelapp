@@ -23,13 +23,15 @@ public class JwtProvider {
 
     @PostConstruct
     public void init() {
-        // Convert String secret to proper Key using UTF-8 charset
         this.key = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
     }
 
-    public String generateToken(String email) {
+    // ✅ Modified to accept email, role, isApproved
+    public String generateToken(String email, String role, boolean isApproved) {
         return Jwts.builder()
                 .setSubject(email)
+                .claim("role", role)
+                .claim("isApproved", isApproved)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + jwtExpiration))
                 .signWith(key, SignatureAlgorithm.HS512)
