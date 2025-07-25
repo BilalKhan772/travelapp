@@ -1,14 +1,29 @@
 // src/pages/admin/AdminPanel.jsx
-import React from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import './AdminPanel.css';
 
 export default function AdminPanel() {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const [showSidebar, setShowSidebar] = useState(false);
+  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  };
 
   return (
     <div className="admin-panel">
-      <div className="admin-sidebar">
+      {/* Hamburger for mobile */}
+      <div className="hamburger" onClick={() => setShowSidebar(!showSidebar)}>
+        &#9776;
+      </div>
+
+      {/* Sidebar Navigation */}
+      <div className={`admin-sidebar ${showSidebar ? 'show' : ''}`}>
         <h2 className="admin-title">Admin Panel</h2>
         <nav className="admin-nav">
           <Link to="dashboard" className={location.pathname.includes('dashboard') ? 'active' : ''}>Dashboard</Link>
@@ -17,12 +32,27 @@ export default function AdminPanel() {
           <Link to="group-delete" className={location.pathname.includes('group-delete') ? 'active' : ''}>Group Delete</Link>
           <Link to="ad-upload" className={location.pathname.includes('ad-upload') ? 'active' : ''}>Ad Upload</Link>
           <Link to="ad-delete" className={location.pathname.includes('ad-delete') ? 'active' : ''}>Ad Delete</Link>
+          <button className="logout-btn" onClick={() => setShowLogoutConfirm(true)}>Logout</button>
         </nav>
       </div>
 
+      {/* Main content */}
       <div className="admin-content">
         <Outlet />
       </div>
+
+      {/* Logout Confirmation Modal */}
+      {showLogoutConfirm && (
+        <div className="modal-overlay">
+          <div className="modal-box">
+            <p>Are you sure you want to logout?</p>
+            <div className="modal-actions">
+              <button className="confirm" onClick={handleLogout}>Yes</button>
+              <button className="cancel" onClick={() => setShowLogoutConfirm(false)}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
