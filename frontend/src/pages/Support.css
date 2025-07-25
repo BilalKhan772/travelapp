@@ -1,11 +1,22 @@
+/* Support.css */
+/* PAGE BACKGROUND */
+.support-page-wrapper {
+  background-color: #f5f1fb; /* same as About */
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+/* MAIN WHITE BOX */
 .support-container {
+  background-color: white; /* ⬅️ make sure this is white */
   padding: 2rem;
   max-width: 800px;
-  margin: auto;
-  background-color: #f9f9ff;
+  margin: 0 auto; /* center horizontally */
+  margin-top: 60px; /* ⬅️ push down from top only */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
+
 
 .support-title {
   font-size: 2.5rem;

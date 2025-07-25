@@ -1,0 +1,17 @@
+/* Background like About/Support/Ads */
+.subscription-page-wrapper {
+  background-color: #f5f1fb;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+/* Centered white box */
+.subscription-container {
+  background-color: white;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 60px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
