@@ -14,12 +14,13 @@ import { isLoggedIn } from './utils/auth';
 function App() {
   const location = useLocation();
 
-  // Hide header only on login and signup
-  const hideHeader = ['/login', '/signup', '/'].includes(location.pathname);
+  // Hide header on login, signup, root, AND admin-panel pages
+  const hideHeader = ['/login', '/signup', '/'].includes(location.pathname) || location.pathname.startsWith('/admin-panel');
 
   return (
     <>
       {!hideHeader && <Header />}
+
       <Routes>
         <Route
           path="/"
@@ -36,7 +37,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/support" element={<Support />} />
 
-        {/* Protected Routes */}
+        {/* Protected User Routes */}
         <Route
           path="/group-fare"
           element={
