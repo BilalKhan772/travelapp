@@ -22,7 +22,7 @@ import UserRequests from './pages/admin/UserRequests';
 function App() {
   const location = useLocation();
 
-  // Hide header on login, signup, root, AND admin-panel pages
+  // Hide header on login, signup, root, and admin panel pages
   const hideHeader =
     ['/login', '/signup', '/'].includes(location.pathname) ||
     location.pathname.startsWith('/admin-panel');

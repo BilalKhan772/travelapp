@@ -1,11 +1,9 @@
-/* Full soft background */
 .advertisements-page-wrapper {
-  background-color: #f5f1fb; /* same as About */
+  background-color: #f5f1fb;
   min-height: 100vh;
   padding: 40px 20px;
 }
 
-/* White centered box */
 .advertisements-container {
   background-color: white;
   padding: 2rem;
@@ -14,4 +12,41 @@
   margin-top: 60px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+/* Message styling */
+.advertisements-message {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Subscription button */
+.advertisements-subscription-button {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #6c5ce7;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.advertisements-subscription-button:hover {
+  background-color: #5a4bd1;
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+  .advertisements-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .advertisements-subscription-button {
+    width: 100%;
+    padding: 12px 0;
+  }
 }

@@ -1,11 +1,10 @@
-/* Light purple background */
+/* Keep your existing styles */
 .groupfare-page-wrapper {
-  background-color: #f5f1fb; /* same as About & Ads */
+  background-color: #f5f1fb;
   min-height: 100vh;
   padding: 40px 20px;
 }
 
-/* White top-centered box */
 .groupfare-container {
   background-color: white;
   padding: 2rem;
@@ -14,4 +13,41 @@
   margin-top: 60px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+/* Styled message paragraph */
+.groupfare-message {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Updated subscription button style */
+.groupfare-subscription-button {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #6c5ce7;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.groupfare-subscription-button:hover {
+  background-color: #5a4bd1;
+}
+
+/* Responsive tweak */
+@media (max-width: 480px) {
+  .groupfare-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .groupfare-subscription-button {
+    width: 100%;
+    padding: 12px 0;
+  }
 }
