@@ -1,0 +1,58 @@
+/* src/pages/admin/GroupUpload.css */
+.group-upload-wrapper {
+  padding: 30px;
+  background-color: #f6f6fb;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.upload-form {
+  max-width: 500px;
+  margin: auto;
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.image-preview {
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+
+.upload-form input[type="text"],
+.upload-form input[type="file"] {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.upload-form button {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  background-color: #6a0dad;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.upload-form button:hover {
+  background-color: #5800a5;
+}
+
+.upload-message {
+  margin-top: 10px;
+  font-weight: bold;
+  color: green;
+}
