@@ -16,7 +16,7 @@ function GroupFare() {
 
   useEffect(() => {
     if (isApproved) {
-      axios.get('/api/group-fare')
+      axios.get('/group-fare')
         .then((res) => {
           setFares(res.data);
           setFilteredFares(res.data);
@@ -47,7 +47,7 @@ function GroupFare() {
       <div className="groupfare-container">
         {isApproved ? (
           <>
-            <h2>Group Fares</h2>
+            <h2 className="groupfare-heading">Group Fares</h2>
 
             {/* Dropdown Filter */}
             {routes.length > 0 && (
@@ -69,22 +69,24 @@ function GroupFare() {
             {loading ? (
               <div className="groupfare-spinner"></div>
             ) : filteredFares.length === 0 ? (
-              <p>No group fares available for the selected route.</p>
+              <p className="groupfare-empty-msg">No group fares available for the selected route.</p>
             ) : (
               <div className="groupfare-card-grid">
                 {filteredFares.map((fare) => (
                   <div key={fare._id} className="groupfare-card">
                     <img src={fare.imageUrl} alt="fare" className="groupfare-image" />
-                    <h3>{fare.agencyName}</h3>
-                    <p className="groupfare-route">{fare.route}</p>
-                    <a
-                      href={fare.whatsappLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="groupfare-whatsapp-link"
-                    >
-                      Contact via WhatsApp
-                    </a>
+                    <div className="groupfare-card-content">
+                      <h3 className="groupfare-agency">{fare.agencyName}</h3>
+                      <p className="groupfare-route">{fare.route}</p>
+                      <a
+                        href={fare.whatsappLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="groupfare-whatsapp-button"
+                      >
+                        Contact via WhatsApp
+                      </a>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -92,7 +94,7 @@ function GroupFare() {
           </>
         ) : (
           <>
-            <h2>Group Fares are Locked</h2>
+            <h2 className="groupfare-locked-title">Group Fares are Locked</h2>
             <p className="groupfare-message">
               To explore group fares, please subscribe to one of our available plans.
             </p>
