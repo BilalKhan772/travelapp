@@ -14,6 +14,9 @@ function GroupFare() {
   const [routes, setRoutes] = useState([]);
   const [selectedRoute, setSelectedRoute] = useState('');
 
+  // New state for image modal
+  const [modalImage, setModalImage] = useState(null);
+
   useEffect(() => {
     if (isApproved) {
       axios.get('/group-fare')
@@ -42,6 +45,14 @@ function GroupFare() {
     }
   };
 
+  const openImageModal = (imageUrl) => {
+    setModalImage(imageUrl);
+  };
+
+  const closeImageModal = () => {
+    setModalImage(null);
+  };
+
   return (
     <div className="groupfare-page-wrapper">
       <div className="groupfare-container">
@@ -49,7 +60,6 @@ function GroupFare() {
           <>
             <h2 className="groupfare-heading">Group Fares</h2>
 
-            {/* Dropdown Filter */}
             {routes.length > 0 && (
               <select
                 value={selectedRoute}
@@ -65,7 +75,6 @@ function GroupFare() {
               </select>
             )}
 
-            {/* Loading Spinner */}
             {loading ? (
               <div className="groupfare-spinner"></div>
             ) : filteredFares.length === 0 ? (
@@ -74,7 +83,12 @@ function GroupFare() {
               <div className="groupfare-card-grid">
                 {filteredFares.map((fare) => (
                   <div key={fare._id} className="groupfare-card">
-                    <img src={fare.imageUrl} alt="fare" className="groupfare-image" />
+                    <img
+                      src={fare.imageUrl}
+                      alt="fare"
+                      className="groupfare-image"
+                      onClick={() => openImageModal(fare.imageUrl)}
+                    />
                     <div className="groupfare-card-content">
                       <h3 className="groupfare-agency">{fare.agencyName}</h3>
                       <p className="groupfare-route">{fare.route}</p>
@@ -89,6 +103,14 @@ function GroupFare() {
                     </div>
                   </div>
                 ))}
+              </div>
+            )}
+
+            {/* Modal for full-size image */}
+            {modalImage && (
+              <div className="groupfare-modal" onClick={closeImageModal}>
+                <span className="groupfare-modal-close" onClick={closeImageModal}>&times;</span>
+                <img src={modalImage} alt="Full View" className="groupfare-modal-image" />
               </div>
             )}
           </>

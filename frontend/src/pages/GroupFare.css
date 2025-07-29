@@ -1,5 +1,4 @@
-/* src/pages/GroupFare.css */
-
+/* GroupFare.css */
 .groupfare-page-wrapper {
   background-color: #f6f6fb;
   min-height: 100vh;
@@ -12,19 +11,38 @@
 }
 
 .groupfare-heading {
+  text-align: center;
   font-size: 28px;
-  font-weight: bold;
   margin-bottom: 20px;
-  color: #333;
 }
 
 .groupfare-dropdown {
-  padding: 10px 12px;
+  display: block;
+  margin: 0 auto 30px auto;
+  padding: 10px;
+  border-radius: 5px;
   font-size: 16px;
-  margin-bottom: 30px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  outline: none;
+}
+
+.groupfare-spinner {
+  border: 4px solid #ccc;
+  border-top: 4px solid #6a0dad;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 40px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.groupfare-empty-msg {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
 }
 
 .groupfare-card-grid {
@@ -34,94 +52,72 @@
 }
 
 .groupfare-card {
-  background-color: #fff;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  transition: transform 0.2s ease;
-}
-
-.groupfare-card:hover {
-  transform: translateY(-5px);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .groupfare-image {
   width: 100%;
-  height: 180px;
+  height: 75%;
   object-fit: cover;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .groupfare-card-content {
-  padding: 16px;
-  text-align: center;
+  padding: 12px;
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .groupfare-agency {
   font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 8px;
+  font-weight: bold;
+  margin: 0;
 }
 
 .groupfare-route {
-  font-size: 16px;
-  color: #777;
-  margin-bottom: 12px;
+  font-size: 15px;
+  color: #555;
+  margin: 4px 0;
 }
 
 .groupfare-whatsapp-button {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 6px 10px;
+  margin-top: 6px;
+  border-radius: 6px;
   background-color: #25d366;
   color: white;
-  border: none;
-  border-radius: 20px;
-  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
 .groupfare-whatsapp-button:hover {
-  background-color: #1ebf56;
-}
-
-.groupfare-spinner {
-  margin-top: 30px;
-  width: 40px;
-  height: 40px;
-  border: 4px solid #ccc;
-  border-top-color: #7d3cff;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.groupfare-empty-msg {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 18px;
-  color: #888;
+  background-color: #1ebe5d;
 }
 
 .groupfare-locked-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #b00020;
   text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #c0392b;
 }
 
 .groupfare-message {
-  font-size: 16px;
-  color: #555;
   text-align: center;
+  font-size: 18px;
   margin-bottom: 20px;
+  color: #555;
 }
 
 .groupfare-subscription-button {
@@ -129,14 +125,47 @@
   width: fit-content;
   margin: 0 auto;
   padding: 10px 20px;
-  background-color: #7d3cff;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
   border-radius: 25px;
-  transition: background-color 0.3s ease;
+  background-color: #6a0dad;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s;
 }
 
 .groupfare-subscription-button:hover {
-  background-color: #5d2fbe;
+  background-color: #5b089e;
+}
+
+/* ===== MODAL STYLES ===== */
+.groupfare-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 10px;
+}
+
+.groupfare-modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+}
+
+.groupfare-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
 }
