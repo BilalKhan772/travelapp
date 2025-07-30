@@ -1,52 +1,204 @@
-.advertisements-page-wrapper {
-  background-color: #f5f1fb;
+.advertisement-page-wrapper {
+  background-color: #f6f6fb;
   min-height: 100vh;
   padding: 40px 20px;
 }
 
-.advertisements-container {
-  background-color: white;
-  padding: 2rem;
-  max-width: 800px;
+.advertisement-container {
+  max-width: 1200px;
   margin: 0 auto;
-  margin-top: 60px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.advertisement-heading {
   text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
-/* Message styling */
-.advertisements-message {
-  margin-top: 12px;
-  font-size: 1rem;
-  color: #555;
+.advertisement-dropdown {
+  display: block;
+  margin: 0 auto 30px auto;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
-/* Subscription button */
-.advertisements-subscription-button {
-  display: inline-block;
+.advertisement-spinner {
+  border: 4px solid #ccc;
+  border-top: 4px solid #6a0dad;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 40px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.advertisement-empty-msg {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+}
+
+.advertisement-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px 26px;
+  justify-content: center;
   margin-top: 20px;
-  background-color: #6c5ce7;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 25px;
-  text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+  .advertisement-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .advertisement-card-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .advertisement-card {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+}
+
+.advertisement-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.advertisement-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.advertisement-card-content {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.advertisement-agency {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 6px 0;
+  word-wrap: break-word;
+}
+
+.advertisement-route {
+  font-size: 14px;
+  color: #4b0082;
   font-weight: 600;
+  margin: 4px 0;
+}
+
+.advertisement-whatsapp-button {
+  display: inline-block;
+  padding: 6px 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  background-color: #25d366;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
-.advertisements-subscription-button:hover {
-  background-color: #5a4bd1;
+.advertisement-whatsapp-button:hover {
+  background-color: #1ebe5d;
 }
 
-/* Responsive styles */
-@media (max-width: 480px) {
-  .advertisements-container {
-    padding: 1.5rem 1rem;
-  }
+.advertisement-locked-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #c0392b;
+}
 
-  .advertisements-subscription-button {
-    width: 100%;
-    padding: 12px 0;
-  }
+.advertisement-message {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.advertisement-subscription-button {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: #6a0dad;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.advertisement-subscription-button:hover {
+  background-color: #5b089e;
+}
+
+/* ===== MODAL STYLES ===== */
+.advertisement-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.advertisement-modal-image {
+  max-width: 95vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+  margin: auto;
+  display: block;
+}
+
+.advertisement-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.advertisement-caption {
+  font-size: 14px;
+  color: #555;
+  margin: 4px 0;
+  word-wrap: break-word;
 }
