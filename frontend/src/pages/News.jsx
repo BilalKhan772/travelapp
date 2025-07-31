@@ -20,6 +20,15 @@ export default function News() {
       });
   }, []);
 
+  const handleCardClick = (url) => {
+    // Validate the URL
+    if (typeof url === 'string' && (url.startsWith('http://') || url.startsWith('https://'))) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } else {
+      alert('Invalid URL');
+    }
+  };
+
   return (
     <div className="news-page-wrapper">
       <div className="news-container">
@@ -32,16 +41,14 @@ export default function News() {
         ) : (
           <div className="news-list">
             {newsItems.map((item) => (
-              <div key={item._id} className="news-card">
+              <div
+                key={item._id}
+                className="news-card"
+                onClick={() => handleCardClick(item.sourceUrl)}
+                style={{ cursor: 'pointer' }}
+              >
                 <h3 className="news-title">{item.title}</h3>
-                <a
-                  href={item.sourceLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="news-source-button"
-                >
-                  Visit Source
-                </a>
+                <p className="news-link-text">Click to visit source</p>
               </div>
             ))}
           </div>
