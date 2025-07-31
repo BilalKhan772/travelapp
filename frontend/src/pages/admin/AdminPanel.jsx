@@ -32,6 +32,7 @@ export default function AdminPanel() {
           <Link to="group-delete" className={location.pathname.includes('group-delete') ? 'active' : ''}>Group Delete</Link>
           <Link to="ad-upload" className={location.pathname.includes('ad-upload') ? 'active' : ''}>Ad Upload</Link>
           <Link to="ad-delete" className={location.pathname.includes('ad-delete') ? 'active' : ''}>Ad Delete</Link>
+          <Link to="news-upload" className={location.pathname.includes('news-upload') ? 'active' : ''}>News Upload</Link>
           <button className="logout-btn" onClick={() => setShowLogoutConfirm(true)}>Logout</button>
         </nav>
       </div>

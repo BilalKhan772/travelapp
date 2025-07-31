@@ -18,6 +18,8 @@ import GroupDelete from './pages/admin/GroupDelete';
 import AdUpload from './pages/admin/AdUpload';
 import AdDelete from './pages/admin/AdDelete';
 import UserRequests from './pages/admin/UserRequests';
+import NewsUpload from './pages/admin/NewsUpload'; // ✅ Admin: News Upload
+import News from './pages/News'; // ✅ Public News page
 
 function App() {
   const location = useLocation();
@@ -49,6 +51,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<About />} />
         <Route path="/support" element={<Support />} />
+        <Route path="/news" element={<News />} /> {/* ✅ Public route added */}
 
         {/* Protected User Routes */}
         <Route
@@ -92,6 +95,7 @@ function App() {
           <Route path="ad-upload" element={<AdUpload />} />
           <Route path="ad-delete" element={<AdDelete />} />
           <Route path="user-requests" element={<UserRequests />} />
+          <Route path="news-upload" element={<NewsUpload />} /> {/* ✅ Admin route */}
         </Route>
       </Routes>
     </>

@@ -23,6 +23,7 @@ const Header = () => {
         <div className={`header-right ${menuOpen ? 'show' : ''}`}>
           <NavLink to="/group-fare" className={({ isActive }) => isActive ? 'active-link' : ''}>Group Fare</NavLink>
           <NavLink to="/advertisements" className={({ isActive }) => isActive ? 'active-link' : ''}>Advertisements</NavLink>
+          <NavLink to="/news" className={({ isActive }) => isActive ? 'active-link' : ''}>News</NavLink> {/* ✅ News added */}
           <NavLink to="/subscription" className={({ isActive }) => isActive ? 'active-link' : ''}>Subscription</NavLink>
           <NavLink to="/about" className={({ isActive }) => isActive ? 'active-link' : ''}>About</NavLink>
           <NavLink to="/support" className={({ isActive }) => isActive ? 'active-link' : ''}>Help</NavLink>
