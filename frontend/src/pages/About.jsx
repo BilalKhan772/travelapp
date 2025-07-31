@@ -1,35 +1,150 @@
 import React from 'react';
-import './About.css'; // create this CSS file
+import './About.css';
 
 const About = () => {
+  const whatsappLink = 'https://wa.me/923001234567'; // replace with real WhatsApp number
+
   return (
     <div className="about-container">
-      <div className="about-content">
-        <h1>
-          Welcome to <span className="highlight">The Mighty Groups</span>
-        </h1>
-        <p>
-          We are <span className="bold">passionate</span> about empowering the travel community through affordable and accessible <span className="highlight">Group Ticketing</span>. 
-          Whether you're a travel Agent or a business, we aim to simplify the group fare experience.
-        </p>
-        <p>
-          Our goal is to bring travelers and travel companies together under one platform where <span className="bold">transparency</span> and <span className="bold">trust</span> matter the most.
-        </p>
-
-        <div className="advert-section">
-          <h2>📢 Want to Promote Your Travel Company?</h2>
-          <p>
-            If you're a travel agency and want to run advertisements or increase your visibility, feel free to reach out to us on WhatsApp. We'll help you promote your offers to thousands of potential customers!
+      <div className="about-inner">
+        {/* Welcome Section */}
+        <section className="section intro">
+          <h1>
+            Welcome to <span className="highlight">The Mighty Groups</span>
+          </h1>
+          <p className="tagline">
+            Bringing the travel community together — one platform, one touch away.
           </p>
-          <a 
-            href="https://wa.me/923001234567" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="whatsapp-button"
-          >
-            💬 Contact Us on WhatsApp
-          </a>
-        </div>
+          <p>
+            Our mission is to create a powerful space where travel agents, businesses, and users connect seamlessly. Whether it’s group fares, advertisements, banners, or travel news — we’ve got it all in one place.
+          </p>
+        </section>
+
+        {/* Features Section */}
+        <section className="section features">
+          <div className="cards">
+
+            {/* Group Fare Card */}
+            <div className="card">
+              <div className="card-header">
+                <div className="emoji">🛫</div>
+                <h2>Group Fare</h2>
+              </div>
+              <p>
+                Get access to the latest group fares across all regions — faster than anywhere else. If you’re looking to stay updated or promote your group fares, we’re here to help.
+              </p>
+              <div className="card-cta">
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn">
+                  💬 Contact for Group Fare
+                </a>
+              </div>
+            </div>
+
+            {/* Advertisement Card */}
+            <div className="card">
+              <div className="card-header">
+                <div className="emoji">📢</div>
+                <h2>Advertisements</h2>
+              </div>
+              <p>
+                See the latest deals, Umrah packages, and job opportunities — before the rest. Want to advertise your own offer? Let’s showcase your services to thousands of users.
+              </p>
+              <div className="card-cta">
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn">
+                  📢 Promote Your Advertisement
+                </a>
+              </div>
+            </div>
+
+            {/* News Card */}
+            <div className="card">
+              <div className="card-header">
+                <div className="emoji">📰</div>
+                <h2>Travel News</h2>
+              </div>
+              <p>
+                Stay informed with the latest updates in the travel industry — including visa policies, airline announcements, and travel guidelines — all in one place.
+              </p>
+              <div className="card-cta">
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn">
+                  🔍 Explore Travel News
+                </a>
+              </div>
+            </div>
+
+            {/* Banner Service Card */}
+            <div className="card">
+              <div className="card-header">
+                <div className="emoji">🎨</div>
+                <h2>Banner Creation</h2>
+              </div>
+              <p>
+                Need a custom banner for your group fare, Umrah package, or business advertisement? We offer quick, attractive banner design services tailored to your needs.
+              </p>
+              <div className="card-cta">
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn">
+                  🖼️ Request a Banner Design
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="section promote">
+          <div className="promote-wrapper">
+            <div className="promote-text">
+              <h2>Have Something to Promote?</h2>
+              <p>
+                Reach out to us for any group fare promotions, advertisements, or travel-related services. Our team is ready to help you reach a wider audience quickly and effectively.
+              </p>
+              <div className="buttons-row">
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn outlined">
+                  💬 Chat on WhatsApp
+                </a>
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn">
+                  🚀 Get Started Now
+                </a>
+              </div>
+            </div>
+            <div className="promote-visual">
+              <div className="promo-box">
+                <div className="badge">Grow with Us</div>
+                <p>Promote your offers. Get noticed. Expand your reach — all from one platform.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer Section */}
+        <footer className="section footer">
+          <div className="social-intro">
+            <p className="small-title">Follow & Connect</p>
+            <h3>Stay in Touch</h3>
+            <p>
+              Get updates and support via our social media channels. Reach out anytime for help or to collaborate with us.
+            </p>
+          </div>
+          <div className="social-links">
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="social-pill">
+              💬 WhatsApp
+            </a>
+            <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-pill">
+              📸 Instagram
+            </a>
+            <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="social-pill">
+              👍 Facebook
+            </a>
+            <a href="mailto:support@mightygroups.com" className="social-pill">
+              ✉️ Email
+            </a>
+          </div>
+          <div className="bottom-note">
+            <p>Please deal with caution and confirm all details before making any payments. The Mighty Groups is not responsible for any loss or miscommunication between parties.</p>
+            <p>© {new Date().getFullYear()} The Mighty Groups. All rights reserved.</p>
+          </div>
+        </footer>
       </div>
     </div>
   );

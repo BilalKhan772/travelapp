@@ -1,69 +1,317 @@
+/* Base/reset */
+* {
+  box-sizing: border-box;
+}
+
 .about-container {
-  background-color: #f4f2fa; /* eye-comfortable background */
-  min-height: 90vh;
-  padding: 40px 20px;
+  background-color: #f6f6fb; /* eye-comfortable */
+  padding: 60px 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: 100%;
 }
 
-.about-content {
-  max-width: 800px;
-  background: #ffffff;
-  padding: 30px;
+.about-inner {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* Intro Section */
+.section.intro {
+  background: #fff;
+  padding: 40px 30px;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+  position: relative;
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #000;
+.section.intro h1 {
+  font-size: clamp(1.8rem, 2.5vw, 2.8rem);
+  margin-bottom: 12px;
+  text-align: center;
+  color: #1f1f35;
+}
+
+.section.intro .tagline {
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: #4a4a6a;
+}
+
+.section.intro p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 12px;
   text-align: center;
 }
 
 .highlight {
   color: #6a0dad;
-  font-weight: bold;
+  font-weight: 700;
 }
 
-.bold {
-  font-weight: 600;
+/* Feature Cards */
+.section.features .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
 }
 
-p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 16px;
-  color: #333;
+.card {
+  background: #ffffff;
+  padding: 24px 20px;
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #eceaf2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
-.advert-section {
-  margin-top: 40px;
-  background-color: #fef6ff;
-  padding: 20px;
-  border-left: 5px solid #6a0dad;
-  border-radius: 12px;
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px rgba(106, 13, 218, 0.08);
 }
 
-.advert-section h2 {
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-  color: #000;
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.whatsapp-button {
+.card-header .emoji {
+  font-size: 1.8rem;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  color: #1f1f35;
+}
+
+.card p {
+  flex: 1;
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0;
+}
+
+.card-cta {
+  margin-top: 8px;
+}
+
+.btn {
   display: inline-block;
-  margin-top: 15px;
-  background-color: #25D366;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 50px;
-  font-size: 1rem;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background-color: #6a0dad;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: filter .2s ease;
 }
 
-.whatsapp-button:hover {
-  background-color: #1ebd5a;
+.btn:hover {
+  filter: brightness(1.08);
+}
+
+.btn.outlined {
+  background: transparent;
+  color: #6a0dad;
+  border: 2px solid #6a0dad;
+  margin-right: 8px;
+}
+
+/* Promote Section */
+.section.promote {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.04);
+}
+
+.promote-wrapper {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.promote-text {
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.promote-text h2 {
+  font-size: 1.8rem;
+  margin: 0;
+  color: #1f1f35;
+}
+
+.promote-text p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.buttons-row {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.promote-visual {
+  flex: 1 1 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-box {
+  background: linear-gradient(135deg, #f3e8ff 0%, #ffffff 100%);
+  border: 1px solid #e9e4f5;
+  padding: 20px;
+  border-radius: 14px;
+  position: relative;
+  width: 100%;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.promo-box .badge {
+  background: #6a0dad;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.promo-box p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #3f3f5e;
+}
+
+/* Footer / Social */
+.footer {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border: 1px solid #eceaf2;
+}
+
+.social-intro {
+  max-width: 900px;
+}
+
+.small-title {
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 1.2px;
+  margin: 0;
+  color: #6a0dad;
+  font-weight: 700;
+}
+
+.footer h3 {
+  margin: 8px 0 6px;
+  font-size: 1.6rem;
+  color: #1f1f35;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.social-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f4f2fa;
+  padding: 12px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1f1f35;
+  border: 1px solid transparent;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.social-pill .icon {
+  font-size: 1.1rem;
+}
+
+.social-pill:hover {
+  background: #e9e6fb;
+  transform: translateY(-2px);
+}
+
+.bottom-note {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #888;
+  text-align: center;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .promote-wrapper {
+    flex-direction: column;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-container {
+    padding: 30px 12px;
+  }
+  .section.intro,
+  .section.promote,
+  .footer {
+    padding: 25px 20px;
+  }
+  .card-header h2 {
+    font-size: 1.2rem;
+  }
+  .btn {
+    font-size: 0.8rem;
+    padding: 9px 16px;
+  }
 }
