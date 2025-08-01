@@ -131,10 +131,10 @@ const About = () => {
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="social-pill">
               💬 WhatsApp
             </a>
-            <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-pill">
+            <a href="https://www.instagram.com/themightygroups/" target="_blank" rel="noopener noreferrer" className="social-pill">
               📸 Instagram
             </a>
-            <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="social-pill">
+            <a href="https://www.facebook.com/profile.php?id=61578623297597" target="_blank" rel="noopener noreferrer" className="social-pill">
               👍 Facebook
             </a>
             <a href="mailto:support@mightygroups.com" className="social-pill">
