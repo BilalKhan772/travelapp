@@ -1,6 +1,9 @@
 package com.travelapp.backend.service;
 
 import com.cloudinary.Cloudinary;
+import com.travelapp.backend.dto.advertisement.AdvertisementRequest;
+import com.travelapp.backend.dto.advertisement.AdvertisementResponse;
+import com.travelapp.backend.dto.advertisement.AdvertisementDTOMapper;
 import com.travelapp.backend.model.Advertisement;
 import com.travelapp.backend.repository.AdvertisementRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +15,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -19,17 +23,31 @@ public class AdvertisementService {
 
     private final AdvertisementRepository advertisementRepository;
     private final Cloudinary cloudinary;
+    private final AdvertisementDTOMapper advertisementDTOMapper;
 
-    public Advertisement uploadAdvertisement(MultipartFile file, String agencyName, String caption, String whatsappLink) throws IOException {
+    public AdvertisementResponse uploadAdvertisement(MultipartFile file, AdvertisementRequest request) throws IOException {
         Map<?, ?> uploadResult = cloudinary.uploader().upload(file.getBytes(), Map.of());
         String imageUrl = uploadResult.get("secure_url").toString();
 
-        Advertisement ad = new Advertisement(null, imageUrl, agencyName, caption, whatsappLink, new Date());
-        return advertisementRepository.save(ad);
+        Advertisement ad = new Advertisement(
+                null,
+                imageUrl,
+                request.getAgencyName(),
+                request.getCaption(),
+                request.getWhatsappLink(),
+                new Date()
+        );
+
+        Advertisement saved = advertisementRepository.save(ad);
+        return advertisementDTOMapper.toResponse(saved);
     }
 
-    public List<Advertisement> getAllAdvertisements() {
-        return advertisementRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt"));
+    public List<AdvertisementResponse> getAllAdvertisements() {
+        return advertisementRepository
+                .findAll(Sort.by(Sort.Direction.DESC, "createdAt"))
+                .stream()
+                .map(advertisementDTOMapper::toResponse)
+                .collect(Collectors.toList());
     }
 
     public void deleteAdvertisement(String id) {

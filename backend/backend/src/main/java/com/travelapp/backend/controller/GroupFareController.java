@@ -1,6 +1,7 @@
 package com.travelapp.backend.controller;
 
-import com.travelapp.backend.model.GroupFare;
+import com.travelapp.backend.dto.groupfare.GroupFareRequest;
+import com.travelapp.backend.dto.groupfare.GroupFareResponse;
 import com.travelapp.backend.service.GroupFareService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,23 +19,28 @@ public class GroupFareController {
     private final GroupFareService groupFareService;
 
     @PostMapping("/upload")
-    public ResponseEntity<GroupFare> uploadFare(
+    public ResponseEntity<GroupFareResponse> uploadFare(
             @RequestParam("file") MultipartFile file,
             @RequestParam("agencyName") String agencyName,
             @RequestParam("route") String route,
             @RequestParam("whatsappLink") String whatsappLink
     ) throws IOException {
-        GroupFare fare = groupFareService.uploadGroupFare(file, agencyName, route, whatsappLink);
-        return ResponseEntity.ok(fare);
+        GroupFareRequest request = new GroupFareRequest();
+        request.setAgencyName(agencyName);
+        request.setRoute(route);
+        request.setWhatsappLink(whatsappLink);
+
+        GroupFareResponse response = groupFareService.uploadGroupFare(file, request);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping
-    public ResponseEntity<List<GroupFare>> getAllFares() {
+    public ResponseEntity<List<GroupFareResponse>> getAllFares() {
         return ResponseEntity.ok(groupFareService.getAllFares());
     }
 
     @GetMapping("/filter")
-    public ResponseEntity<List<GroupFare>> filterByRoute(@RequestParam String route) {
+    public ResponseEntity<List<GroupFareResponse>> filterByRoute(@RequestParam String route) {
         return ResponseEntity.ok(groupFareService.getFaresByRoute(route));
     }
 

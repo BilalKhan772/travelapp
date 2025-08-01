@@ -1,6 +1,7 @@
 package com.travelapp.backend.controller;
 
-import com.travelapp.backend.model.Advertisement;
+import com.travelapp.backend.dto.advertisement.AdvertisementRequest;
+import com.travelapp.backend.dto.advertisement.AdvertisementResponse;
 import com.travelapp.backend.service.AdvertisementService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,18 +19,23 @@ public class AdvertisementController {
     private final AdvertisementService advertisementService;
 
     @PostMapping("/upload")
-    public ResponseEntity<Advertisement> uploadAd(
+    public ResponseEntity<AdvertisementResponse> uploadAd(
             @RequestParam("file") MultipartFile file,
             @RequestParam("agencyName") String agencyName,
             @RequestParam("caption") String caption,
             @RequestParam("whatsappLink") String whatsappLink
     ) throws IOException {
-        Advertisement ad = advertisementService.uploadAdvertisement(file, agencyName, caption, whatsappLink);
+        AdvertisementRequest request = new AdvertisementRequest();
+        request.setAgencyName(agencyName);
+        request.setCaption(caption);
+        request.setWhatsappLink(whatsappLink);
+
+        AdvertisementResponse ad = advertisementService.uploadAdvertisement(file, request);
         return ResponseEntity.ok(ad);
     }
 
     @GetMapping
-    public ResponseEntity<List<Advertisement>> getAllAds() {
+    public ResponseEntity<List<AdvertisementResponse>> getAllAds() {
         return ResponseEntity.ok(advertisementService.getAllAdvertisements());
     }
 
