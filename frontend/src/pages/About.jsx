@@ -1,8 +1,9 @@
 import React from 'react';
 import './About.css';
+import { Link } from 'react-router-dom';
 
 const About = () => {
-  const whatsappLink = 'https://wa.me/923271722382'; // replace with real WhatsApp number
+  const whatsappLink = 'https://wa.me/923271722382';
 
   return (
     <div className="about-container">
@@ -16,7 +17,7 @@ const About = () => {
             Bringing the travel community together — one platform, one touch away.
           </p>
           <p>
-            Our mission is to create a powerful space where travel agents, businesses, and users connect seamlessly. Whether it’s group fares, advertisements, banners, or travel news — we’ve got it all in one place.
+            Our mission is to create a powerful space where travel agents, businesses, and users connect seamlessly. Whether it’s group fares, advertisements, or travel news — we’ve got it all in one place.
           </p>
         </section>
 
@@ -66,9 +67,9 @@ const About = () => {
                 Stay informed with the latest updates in the travel industry — including visa policies, airline announcements, and travel guidelines — all in one place.
               </p>
               <div className="card-cta">
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn">
+                <Link to="/news" className="btn">
                   🔍 Explore Travel News
-                </a>
+                </Link>
               </div>
             </div>
 
