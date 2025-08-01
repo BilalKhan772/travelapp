@@ -2,7 +2,7 @@ import React from 'react';
 import './About.css';
 
 const About = () => {
-  const whatsappLink = 'https://wa.me/923359292540'; // replace with real WhatsApp number
+  const whatsappLink = 'https://wa.me/923271722382'; // replace with real WhatsApp number
 
   return (
     <div className="about-container">

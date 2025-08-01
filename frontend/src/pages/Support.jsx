@@ -14,7 +14,7 @@ const Support = () => {
 
         <div className="contact-box">
           <p><strong>Email:</strong> <a href="mailto:support@themightygroups.com">support@themightygroups.com</a></p>
-          <p><strong>Phone:</strong> <a href="tel:+923359292540">+92 335 9292 540</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+923271722382">+92 327 1722 382</a></p>
         </div>
 
         <p className="final-msg">
