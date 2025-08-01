@@ -54,14 +54,14 @@ function Subscription() {
                       <h3>{selectedPlan.label} Plan</h3>
                       <p>💸 Please send <strong>PKR {selectedPlan.price}</strong> via:</p>
                       <ul>
-                        <li>📲 <strong>JazzCash:</strong> 0300-XXXXXXX</li>
-                        <li>📲 <strong>EasyPaisa:</strong> 0300-XXXXXXX</li>
+                        <li>📲 <strong>JazzCash:</strong> 0335-9292540</li>
+                        <li>📲 <strong>EasyPaisa:</strong> 0335-9292540</li>
                       </ul>
                       <p>
                         🖼️ After payment, send screenshot and your <strong>email</strong> & <strong>username</strong> on WhatsApp:
                       </p>
                       <a
-                        href="https://wa.me/92300XXXXXXX"
+                        href="https://wa.me/923359292540"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="whatsapp-button"
