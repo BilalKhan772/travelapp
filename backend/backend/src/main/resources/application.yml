@@ -1,10 +1,11 @@
 server:
-  port: 8080
+  port: ${PORT:8080}
 
 spring:
   data:
     mongodb:
-      uri: ${MONGO_URI}
+      uri: ${MONGODB_URI}
+
   servlet:
     multipart:
       enabled: true
@@ -12,10 +13,10 @@ spring:
       max-request-size: 10MB
 
 cloudinary:
-  cloud-name: ${CLOUD_NAME}
-  api-key: ${CLOUD_API_KEY}
-  api-secret: ${CLOUD_API_SECRET}
+  cloud-name: ${CLOUDINARY_CLOUD_NAME}
+  api-key: ${CLOUDINARY_API_KEY}
+  api-secret: ${CLOUDINARY_API_SECRET}
 
 jwt:
   secret: ${JWT_SECRET}
-  expiration: 86400000
+  expiration: ${JWT_EXPIRATION}
