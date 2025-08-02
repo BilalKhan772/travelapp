@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL, // Reads from .env
+  baseURL: 'https://mighty-backend.onrender.com/api', // no `/api` here
 });
 
 instance.interceptors.request.use((config) => {
