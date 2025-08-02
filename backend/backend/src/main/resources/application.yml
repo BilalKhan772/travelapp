@@ -4,7 +4,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://losser:2GGDSn_iP6zU*_M@cluster0.jazo4qb.mongodb.net/travelapp?retryWrites=true&w=majority&appName=Cluster0
+      uri: ${MONGO_URI}
   servlet:
     multipart:
       enabled: true
@@ -12,10 +12,10 @@ spring:
       max-request-size: 10MB
 
 cloudinary:
-  cloud-name: ddbaf9fxq
-  api-key: 565386529872952
-  api-secret: LUxq-2tWrYLHPmmOxqh6zyeuw88
+  cloud-name: ${CLOUD_NAME}
+  api-key: ${CLOUD_API_KEY}
+  api-secret: ${CLOUD_API_SECRET}
 
 jwt:
-  secret: hjR8m29X@dP8ZsWkLqYxEfMtVcBnZgKrXjTnWpLsQvLuZcVuGtIjYhTgRfEdQsBa
+  secret: ${JWT_SECRET}
   expiration: 86400000
