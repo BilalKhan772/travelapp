@@ -10,8 +10,9 @@ public class CorsConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedOrigins(
-                        "http://localhost:3000",                              // Local dev
-                        "https://mighty-frontend.onrender.com"               // Future frontend deploy
+                        "http://localhost:3000",                             // Local dev
+                        "https://mighty-frontend.onrender.com",             // Future frontend deploy
+                        "https://mighty-group.netlify.app"                 // Netlify live frontend
                 )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
